@@ -1,0 +1,16 @@
+export const ERROR_CODES = Object.freeze({
+  UNDERPAYMENT: 'UNDERPAYMENT',
+  OVERPAYMENT: 'OVERPAYMENT',
+  TRANSACTION_EXPIRED: 'TRANSACTION_EXPIRED',
+  PAYMENT_NOT_DETECTED: 'PAYMENT_NOT_DETECTED',
+  EXCHANGE_RATE_UNAVAILABLE: 'EXCHANGE_RATE_UNAVAILABLE',
+  ZCASH_NETWORK_UNAVAILABLE: 'ZCASH_NETWORK_UNAVAILABLE',
+  INVALID_RECIPIENT: 'INVALID_RECIPIENT',
+  PAYOUT_FAILED: 'PAYOUT_FAILED',
+  DUPLICATE_PROCESSING: 'DUPLICATE_PROCESSING',
+  CANCELLED: 'CANCELLED'
+})
+
+export function makeError(code, message, { retryable = false, details } = {}) {
+  return { code, message, retryable, ...(details === undefined ? {} : { details }), at: new Date().toISOString() }
+}

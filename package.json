@@ -1,0 +1,31 @@
+{
+  "name": "private-bill-quest-12",
+  "private": true,
+  "version": "8.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "server": "node server.mjs",
+    "dev:full": "concurrently -k \"npm run dev\" \"npm run server\"",
+    "check": "node --check server.mjs && node --check src/status-engine.mjs && node --check src/node-config.mjs && node --check src/node-manager.mjs && node --check src/rpc.mjs && node --check src/store.mjs && node --check src/payment-monitor.mjs && node --check src/payout-service.mjs && node --check src/adapters/zebra.mjs && node --check src/adapters/zakura.mjs && node --check src/adapters/zallet.mjs",
+    "test": "node scripts-test.mjs"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "qrcode.react": "^4.2.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "typescript": "latest",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "concurrently": "9.2.4"
+  },
+  "overrides": {
+    "shell-quote": "1.11.0"
+  }
+}
